@@ -10,11 +10,6 @@ PRODUCT_PACKAGES += \
     libOmxVenc \
     libstagefrighthw
 
-ifneq ($(QCPATH),)
-PRODUCT_PACKAGES += \
-    libOmxVdecHevc
-endif
-
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/media_codecs_$(TARGET_BOARD_PLATFORM_VARIANT).xml:system/etc/media_codecs.xml
 
@@ -22,3 +17,7 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     drm.service.enabled=1 \
     vidc.enc.narrow.searchrange=1
+
+# Storage
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.sys.sdcardfs=true
